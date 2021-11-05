@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
 
 const Body = styled.SafeAreaView`
@@ -54,28 +54,40 @@ const TextButton = styled.Text`
 
 function HomeScreen(props) {
 
+  const [ name, setName ] = useState('');
+  const [ sobrenome, setSobrenome ] = useState('');
+  const [ dataNascimento, setDataNascimento ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ list, setList] = useState([]); //Lista 
+
+  const addList = () => {
+    list.push(name, sobrenome, dataNascimento,email);
+  }
+
   const listScreen = ()=>{
-    props.navigation.navigate('LIST');
+    setList(list)
+    props.navigation.navigate('LIST', {
+      list
+    });
   }
 
   return(
     <Body>
-
       
       <BoxInputs>
         <TextoTitulos>Insira seu avatar(foto)</TextoTitulos>
           
           <TextoTitulos>Nome:</TextoTitulos>
-          <Input/>
+          <Input onChangeText={e=>setName(e)} value={name}/>
           <TextoTitulos>Sobrenome:</TextoTitulos>
-          <Input/>
+          <Input onChangeText={e=>setSobrenome(e)} value={sobrenome}/>
           <TextoTitulos>Date de Nascimento:</TextoTitulos>
-          <Input/>
+          <Input onChangeText={e=>setDataNascimento(e)} value={dataNascimento}/>
           <TextoTitulos>E-mail:</TextoTitulos>
-          <Input/>
+          <Input onChangeText={e=>setEmail(e)} value={email}/>
       </BoxInputs>
         
-        <Botao>
+        <Botao onPress = {addList}>
           <TextButton>Cadastrar</TextButton>
         </Botao>
 
