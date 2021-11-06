@@ -77,7 +77,7 @@ function HomeScreen(props) {
       <BoxInputs>
         <TextoTitulos>Insira seu avatar(foto)</TextoTitulos>
           
-          <TextoTitulos>Nome:</TextoTitulos>
+          <TextoTitulos>Nome1:</TextoTitulos>
           <Input onChangeText={e=>setName(e)} value={name}/>
           <TextoTitulos>Sobrenome:</TextoTitulos>
           <Input onChangeText={e=>setSobrenome(e)} value={sobrenome}/>
