@@ -1,6 +1,15 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+import {
+    Image,
+} from 'react-native';
+
+const ImageUser = styled.Image`
+  width: 100px; 
+  height: 100px;
+`;
+
 const AreaItems = styled.View`
     width: 100%;
     justify-content: center;
@@ -21,7 +30,11 @@ const ItemText = styled.Text`
 function ListItems(props) {
     return(
         <AreaItems>
-            <ItemText>{props.data}</ItemText>
+            <ImageUser
+                source={{uri: props.data.image }}
+            />
+            <ItemText>{props.data.name} {props.data.sobrenome}</ItemText>
+            <ItemText>{props.data.dataNascimento} {props.data.email}</ItemText>
         </AreaItems>        
     );
 };

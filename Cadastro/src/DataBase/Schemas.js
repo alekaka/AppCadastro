@@ -43,7 +43,11 @@ export const SupportedTypes = {
 };
 
 export const Tables = {
-    casdastros: {
+    cadastros: {
+        id: {
+            type: SupportedTypes.INTEGER,
+            primary_key: true,
+        },
         image:{
             type: SupportedTypes.TEXT,
             primary_key: false,

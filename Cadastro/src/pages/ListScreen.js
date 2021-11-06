@@ -25,7 +25,7 @@ function ListScreen() {
                 data={list}
                 //renderItem vai ser o componente que vai ter os items da lista
                 renderItem = {({item}) => <ListItems data={item}/>}
-                keyExtractor={(item) => String(item)} //Cada item vai ser uma chave
+                keyExtractor={(item) => item.id} //Cada item vai ser uma chave
                 contentContainerStyle={{
                     padding: 20
                 }}
